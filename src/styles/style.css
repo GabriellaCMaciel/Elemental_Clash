@@ -1,0 +1,86 @@
+/* Global Styles */
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  font-family: 'genshinT', sans-serif;
+  color: white;
+  position: relative;
+}
+
+/* Logo Styles */
+.logo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  max-width: 150px;
+  width: auto;
+}
+
+/* Container with the background image */
+.container {
+  background: url('../imgs/bannerPPoT.png'); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Content div for text and button */
+.content {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 40px;
+  border-radius: 8px;
+}
+
+.content h2 {
+  margin-bottom: 20px;
+}
+
+/* Button Styles */
+button {
+  position: relative;
+  background-color: #7e7979;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  z-index: 1;
+  transition: 0.4s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #8a2be2, #00d4ff, #ff3b3b);
+  animation: gradientShift 3s ease infinite;
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.822),
+    0 0 15px rgba(255, 255, 255, 0.601),
+    0 0 25px rgba(255, 255, 255, 0.2);
+}
+
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 10px;
+}
