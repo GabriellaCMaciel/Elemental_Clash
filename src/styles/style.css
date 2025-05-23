@@ -101,10 +101,25 @@ body {
   margin: 20px 0;
 }
 
+.avatar-jogador{
+  height: 120px;
+  border-radius: 50%;
+  border-style:groove;
+  margin-right: 19px;
+}
+
+.avatar-computador{
+  height: 120px;
+  border-radius: 50%;
+  border-style:groove;
+  margin-left: 19px;
+}
+
 .versus {
   font-size: 1.5rem;
   font-weight: bold;
 }
+
 
 /* Ranking */
 .ranking-bar {
