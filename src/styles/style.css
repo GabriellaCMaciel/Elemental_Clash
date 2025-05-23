@@ -1,86 +1,172 @@
-/* Global Styles */
+/* Estilo Global */
 body {
   background-color: black;
   margin: 0;
-  padding: 0;
   font-family: 'genshinT', sans-serif;
   color: white;
-  position: relative;
+  overflow-x: hidden;
 }
 
-/* Logo Styles */
+/* Logo */
 .logo {
   position: absolute;
   top: 20px;
   right: 20px;
   max-width: 150px;
-  width: auto;
 }
 
-/* Container with the background image */
+/* Container com background */
 .container {
-  background: url('../imgs/bannerPPoT.png'); 
-  background-repeat: no-repeat;
-  background-position: center center;
+  background: url('../imgs/bannerPPoT.png') no-repeat center;
   background-size: cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: fadeIn 1.2s ease-in;
 }
 
-/* Content div for text and button */
+/* Caixa de conteúdo */
 .content {
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px 40px;
-  border-radius: 8px;
+  padding: 30px 50px;
+  border-radius: 12px;
+  animation: fadeUp 1s ease;
 }
 
+/* Título */
 .content h2 {
   margin-bottom: 20px;
+  font-size: 1.6rem;
 }
 
-/* Button Styles */
-button {
-  position: relative;
-  background-color: #7e7979;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1.2em;
+/* Botões principais */
+.botao-jogar, .botao-historico, .botao-fechar {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 30px;
   color: white;
+  font-weight: bold;
   border-radius: 12px;
   cursor: pointer;
-  z-index: 1;
-  transition: 0.4s ease;
+  transition: 0.3s ease;
 }
 
-button:hover {
+/* Gradiente e animação de brilho */
+.botao-jogar, .botao-historico {
   background: linear-gradient(135deg, #8a2be2, #00d4ff, #ff3b3b);
-  animation: gradientShift 3s ease infinite;
-  box-shadow:
-    0 0 8px rgba(255, 255, 255, 0.822),
-    0 0 15px rgba(255, 255, 255, 0.601),
-    0 0 25px rgba(255, 255, 255, 0.2);
+  background-size: 300%;
+  animation: pulseGlow 2s infinite alternate ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
+/* Hover nos botões */
+.botao-jogar:hover, .botao-historico:hover {
+  background-position: 100% 0;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
-/* Footer Styles */
+/* Botão fechar */
+.botao-fechar {
+  background: linear-gradient(to right, #7e57c2, #9575cd);
+}
+
+.botao-fechar:hover {
+  background: linear-gradient(to right, #9575cd, #7e57c2);
+}
+
+/* Painel histórico */
+#painel-historico {
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: none;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Placar */
+.placar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.versus {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Ranking */
+.ranking-bar {
+  width: 100%;
+  background: #111;
+  padding: 0.5rem 0;
+  position: fixed;
+  bottom: 2rem;
+  left: 0;
+  z-index: 1000;
+}
+
+.ranking-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll 12s linear infinite;
+}
+
+.ranking-bar:hover .ranking-content {
+  animation-play-state: paused;
+}
+
+.ranking-item {
+  display: inline-block;
+  margin: 0 1rem;
+  font-size: calc(0.8rem + 0.5vw);
+  font-weight: bold;
+}
+
+/* Rodapé */
 footer {
   text-align: center;
+  background: #111;
   padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Animações */
+@keyframes pulseGlow {
+  from { box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+  to {
+    box-shadow:
+      0 0 15px rgba(255, 255, 255, 0.5),
+      0 0 25px rgba(138, 43, 226, 0.4),
+      0 0 35px rgba(0, 212, 255, 0.3),
+      0 0 45px rgba(255, 59, 59, 0.2);
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }

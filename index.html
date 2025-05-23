@@ -1,28 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Elemental Clash</title>
-
+  
+  <!-- Estilos -->
   <link rel="stylesheet" href="src/styles/fonts.css">
   <link rel="stylesheet" href="src/styles/style.css">
-
 </head>
 
 <body>
-  <img src="https://i.postimg.cc/GpCxYmvc/title.png" alt="Logo" class="logo">
+  
+  <!-- Logo -->
+  <img src="https://i.postimg.cc/GpCxYmvc/title.png" alt="Logo Elemental Clash" class="logo">
 
+  <!-- Container principal -->
   <div class="container">
     <div class="content">
       <h2>Pra ganhar é preciso arriscar!</h2>
-      <p> ELECTRO, HYDRO OU PYRO?</p>
-      <button onclick="jogar()">Bora jogar!</button>
+      <p>ELECTRO, HYDRO OU PYRO?</p>
+      <button class="botao-jogar" onclick="jogar()">Bora jogar!</button>
+
+      <div class="historico-jogadas">
+        <button class="botao-historico" onclick="mostrarHistorico()">Ver Histórico</button>
+      </div>
     </div>
   </div>
+
+  <!-- Painel do Histórico -->
+  <div id="painel-historico" class="hidden painel">
+    <h2>HISTÓRICO DE PARTIDAS</h2>
+
+    <div class="placar">
+      <div>
+        <p>🎮 <strong>JOGADOR</strong></p>
+        <p id="nome-jogador"></p>
+        <p>Vitórias: <span id="vitorias">0</span></p>
+      </div>
+
+      <div class="versus">VS</div>
+
+      <div>
+        <p>🤖 <strong>COMPUTADOR</strong></p>
+        <p>Oli</p>
+        <p>Derrotas: <span id="derrotas">0</span></p>
+      </div>
+    </div>
+
+    <button onclick="fecharHistorico()" class="botao-fechar">Fechar</button>
+  </div>
+
+  <!-- Barra de ranking -->
+  <div class="ranking-bar">
+    <div class="ranking-content" id="ranking-content"></div>
+  </div>
+
+  <!-- Rodapé -->
   <footer>Alura - Imersão DEV - 2025</footer>
-  <script src="script.js"></script>
+
+  <!-- Script JS -->
+  <script src="src/script.js"></script>
 </body>
 
 </html>
